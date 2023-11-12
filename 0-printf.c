@@ -14,26 +14,31 @@ int _printf(const char *format, ...)
 	va_start(print, format);
 	for (a = 0; format[a] != '\0'; a++)
 	{
-	if (format[a] != '%')
+	if (format[a] != '\0')
 	{
-	myputchar(format[a]);
+	count += myputchar(format[a]);
 	}
-	else if (format[a + 1] == 'c')
+	else
 	{
-	myputchar(va_arg(print, int));
+	switch (format[a + 1])
+	{
+	case 'c':
+	count += myputchar(va_arg(print, int));
 	a++;
+	break;
+	case 's':
+      count += myputchar(va_arg(print, int));
+      count += str_count;
+      a++;
+      break;
+	case '%':
+      count += myputchar('%');
+      a++;
+      break;
+	default:
+      break;
 	}
-	else if (format[a + 1] == 's')
-	{
-	str_count = myputs(va_arg(print, char *));
-	a++;
-	count += (str_count - 1);
 	}
-	else if (format[a + 1] == '%')
-	{
-	myputchar('%');
-	}
-	count++;
 	}
 	va_end(print);
 	return (count);
