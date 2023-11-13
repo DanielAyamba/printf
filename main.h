@@ -43,5 +43,7 @@ int print_c(va_list val);
 int print_s(va_list val);
 int _putchar(char c);
 int _printf(const char *format, ...);
+int print_i(va_list args);
+int print_i(va_list args);
 
 #endif
