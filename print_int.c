@@ -42,6 +42,7 @@ int print_i(va_list args)
 
 	return (i);
 }
+
 /**
  * print_d - prints decimal
  * @args: argument to print
@@ -87,4 +88,3 @@ int print_d(va_list args)
 
 	return (i);
 }
-
